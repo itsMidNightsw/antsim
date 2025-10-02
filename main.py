@@ -4,7 +4,10 @@
 
 import random
 
-class Makeworld:
+
+
+
+class MakeWorld:
     def __init__(self, size):
         self.size = size
         self.agents = []
@@ -31,21 +34,18 @@ class Ant:
 
 
 
-monde = Makeworld(size=10)
+monde = MakeWorld(size=10)
 a1 = Ant(pos_x = 1, pos_y = 1, world = monde)
 a2 = Ant(pos_x = 3, pos_y = 2, world = monde)
 
 
 
 
-print(monde.size)
-print(a1.pos_x, a1.pos_y)
 a1.move()
-print(a1.pos_x, a1.pos_y)
+a2.move()
 a1.move()
-print(a1.pos_x, a1.pos_y)
-a1.move()
-print(a1.pos_x, a1.pos_y)
+a2.move()
 
-
-print(monde.agents)
+print("Fourmis dans monde:", len(monde.agents))
+print("a1 se trouve en:", a1.pos_x, a1.pos_y)
+print("a2 se trouve en:", a2.pos_x, a2.pos_y)
