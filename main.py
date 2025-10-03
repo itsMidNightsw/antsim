@@ -19,7 +19,8 @@ class MakeWorld:
         self.agents_xy.append([agent.pos_x, agent.pos_y])
 
 
-
+    def check_surroundings(self):
+        #self.agents_xy = []
 
 
 class Ant:
