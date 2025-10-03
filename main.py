@@ -23,9 +23,10 @@ class MakeWorld:
 
 
 class Ant:
-    def __init__(self, pos_x, pos_y, world):
+    def __init__(self, id, pos_x, pos_y, world):
         self.pos_x = pos_x
         self.pos_y = pos_y
+        self.id = id
         self.world = world
         world.add_agent(self)
 
@@ -39,22 +40,24 @@ class Ant:
             pos_y_next = self.pos_y + random.choice([-1, 0, 1])
         self.pos_x = pos_x_next
         self.pos_y = pos_y_next
+        self.world.agents_xy[self.id][0] = self.pos_x
+        self.world.agents_xy[self.id][1] = self.pos_y
 
 
 
 monde = MakeWorld(size=10)
-a1 = Ant(pos_x = 1, pos_y = 1, world = monde)
-a2 = Ant(pos_x = 3, pos_y = 2, world = monde)
+a0 = Ant(id = 0, pos_x = 1, pos_y = 1, world = monde)
+a1 = Ant(id = 1, pos_x = 3, pos_y = 2, world = monde)
 
 
 
 
+a0.move()
 a1.move()
-a2.move()
+a0.move()
 a1.move()
-a2.move()
 
 print("Fourmis dans monde:", len(monde.agents))
+print("a0 se trouve en:", a0.pos_x, a0.pos_y)
 print("a1 se trouve en:", a1.pos_x, a1.pos_y)
-print("a2 se trouve en:", a2.pos_x, a2.pos_y)
-print("Il y a des foumis à ces coords:", monde.agents_xy)
+print("le monde voit foumis à ces coords:", monde.agents_xy)
